@@ -7,12 +7,13 @@ let peopleRecordStr = "";
 let buildingStatusStr = "";
 
 let speed = 100 ; //演進速度(毫秒)
+
 let people =[];
 function createRequest(number) {
     //產生1~10的亂數
     let appearFloor = Math.floor(Math.random()*10)+1;
     let moveTarget;
-    
+
     do {
         moveTarget = Math.floor(Math.random()*10)+1;
       }while ( moveTarget === appearFloor ) //防止移動目標樓層與出現樓層是相同的亂數
@@ -23,7 +24,6 @@ function createRequest(number) {
         appearFloor, //需求出現樓層
         moveTarget, //移動目標樓層
         moveDirection,//按鈕方向
-        "chooseElevator":""
     };
     people.push(request);
 
@@ -31,7 +31,6 @@ function createRequest(number) {
     console.log(str);
     peopleRecordStr +=`<p>${str}</p>`;
     peopleRecord.innerHTML = `<p>【出現人物紀錄】</p>${peopleRecordStr}`;
-    
 }
 
 //計數器
@@ -108,7 +107,6 @@ function moveNextFloor(elevator){
     }else if(elevator.liftDirection=="down"){
         elevator.presentFloor--;
     }
-    
 }
 
 //載人
@@ -513,8 +511,7 @@ function getFirstIdAppearFloor(){
             })
         }
 
-        //console.log
-
+        //打印結果
         let buildingPeopleStr = "";
         if(people.length == 0){
             buildingPeopleStr = "無";
